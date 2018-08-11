@@ -1,8 +1,9 @@
 var VideoList = (props) => {
-  console.log(props.videos);
+  //console.log(props.videos);
   return (
     <div className="video-list">
-      {props.videos.map((video) => <div><h5><em>!!videoListEntry</em> view goes here</h5></div>)}
+      {/* {props.videos.map((video) => <div key={video.id.videoId}><VideoListEntry video={video} /></div>) */}
+      {props.videos.map((video) => <VideoListEntry video={video} key={video.id.videoId} />)}
     </div>
   );
 };
@@ -17,17 +18,3 @@ VideoList.propTypes = {
 // `var` declarations will only exist globally where explicitly defined.
 window.VideoList = VideoList;
 
-
-/*
-
-let GroceryList = (props) => (
-  <ul>
-   {
-     props.list.map((item) => {
-       return <GroceryListItem item={item}/>;
-       })}
-  </ul>
-);
-
-
-*/
