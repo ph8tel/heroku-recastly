@@ -10,8 +10,19 @@ class App extends React.Component {
   }
 
   handleClick(e) {
-    // TODO:
-    console.log('Clicked');
+    // which video was clicked
+    // save the clicked video id to a variable newVidoeId
+    var newVideoId = e.target.getAttribute('data-videoid');
+    console.log('newVideoId', newVideoId);
+
+    // loop through this.state.videos for matching ID
+    var currentVideoList = this.state.videos;
+    // save the matching video to an var called matchingVideo
+    var matchingVideo = currentVideoList.filter(video => video.id.videoId === newVideoId);
+    console.log('matchingVideo', matchingVideo);
+    // update this.state activeVideo attribute to the matchingVideo
+    // this.setState({ activeVideo: })
+    this.setState({activeVideo: matchingVideo[0]});
   }
 
   render() {
