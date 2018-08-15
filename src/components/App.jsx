@@ -9,6 +9,15 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount(props) {
+    this.props.searchYouTube({}, (response) => {
+      this.setState({
+        videos: response,
+        activeVideo: response[0]
+      });
+    });
+  }
+
   handleClick(e) {
     // which video was clicked
     // save the clicked video id to a variable newVidoeId
@@ -30,7 +39,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><h5><em>search</em> view goes here</h5></div>
+            <div><Search /></div>
           </div>
         </nav>
         <div className="row">

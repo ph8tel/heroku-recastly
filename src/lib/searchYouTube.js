@@ -1,5 +1,5 @@
 var searchYouTube = (options, callback) => {
-
+  var finalResponse;
   if (options === undefined) {
     var key = window.YOUTUBE_API_KEY;
     var query = 'Surfing';
@@ -26,7 +26,7 @@ var searchYouTube = (options, callback) => {
       key: key
     }
   }).done(function (response) {
-    console.log(response.items);
+    callback(response.items);
   });
 };
 

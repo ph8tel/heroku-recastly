@@ -1,8 +1,6 @@
 var VideoList = (props) => {
-  //console.log(props.videos);
   return (
     <div className="video-list">
-      {/* {props.videos.map((video) => <div key={video.id.videoId}><VideoListEntry video={video} /></div>) */}
       {props.videos.map((video) => <VideoListEntry video={video} key={video.id.videoId} handleClick={props.handleClick} />)}
     </div>
   );
