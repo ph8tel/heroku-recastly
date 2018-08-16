@@ -7,6 +7,8 @@ class App extends React.Component {
       activeVideo: exampleVideoData[0]
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    // this.handleChangeDebounced = _.debounce(this.handleChange, 500);
   }
 
   componentDidMount(props) {
@@ -31,7 +33,25 @@ class App extends React.Component {
     console.log('matchingVideo', matchingVideo);
     // update this.state activeVideo attribute to the matchingVideo
     // this.setState({ activeVideo: })
-    this.setState({activeVideo: matchingVideo[0]});
+    this.setState({ activeVideo: matchingVideo[0] });
+  }
+
+  handleChange(e) {
+    // search is started
+    //   e.target.value = what was typed
+    // calling searchYouTube passing the query option
+    //this.handleChangeDebounced(e);
+    e.persist();
+
+    this.handleChangeDebounced = _.debounce(function (e) {
+      this.props.searchYouTube({ query: e.target.value }, (response) => {
+        this.setState({
+          videos: response,
+          activeVideo: response[0]
+        });
+      });
+    }, 500);
+    this.handleChangeDebounced(e);
   }
 
   render() {
@@ -39,7 +59,7 @@ class App extends React.Component {
       <div>
         <nav className="navbar">
           <div className="col-md-6 offset-md-3">
-            <div><Search /></div>
+            <div><Search handleChange={this.handleChange} /></div>
           </div>
         </nav>
         <div className="row">
