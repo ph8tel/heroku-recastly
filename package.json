@@ -7,8 +7,7 @@
   "private": false,
   "scripts": {
     "start": "node app.js",
-    "test": "live-server --open=./SpecRunner.html --port=8081",
-    "postinstall": "curl -s https://raw.githubusercontent.com/reactorcore/pomander/master/bin/install | bash"
+    "test": "live-server --open=./SpecRunner.html --port=8081"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
