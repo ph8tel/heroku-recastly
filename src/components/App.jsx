@@ -4,7 +4,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       videos: exampleVideoData,
-      activeVideo: exampleVideoData[0]
+      activeVideo: exampleVideoDataCopy[0]
     };
     this.handleClick = this.handleClick.bind(this);
     this.handleChange = this.handleChange.bind(this);
